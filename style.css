@@ -1,0 +1,155 @@
+:root {
+  --white: #e0e0e0;
+  --black: #111111;
+  --red: #ff0000;
+  --blue: #15f2fd;
+  --saber-color: var(--blue);
+  --hilt-shadow: var(--black);
+  --toggle-translate: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+body.dark {
+  --saber-color: var(--red);
+  --hilt-shadow: rgba(255, 255, 255, 0.1);
+  --toggle-translate: 2.5rem;
+}
+
+// Toggle
+.checkbox {
+  display: none;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: var(--saber-color);
+  border-radius: 5rem;
+  padding: 0.5rem;
+  height: 2.5rem;
+  width: 5rem;
+  font-size: 1.5rem;
+  transition: background 0.5s ease;
+  cursor: pointer;
+}
+.toggle .ball {
+  position: absolute;
+  background: var(--black);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  transform: translatex(var(--toggle-translate));
+  transition: transform 0.3s ease, background 0.5s ease;
+}
+.fa-galactic-republic {
+  color: var(--black);
+}
+.fa-rebel {
+  color: var(--black);
+}
+
+// Sabers
+.hidden {
+  display: none;
+}
+.saber {
+  position: absolute;
+  width: 18rem;
+  filter: drop-shodow(0 0 10px var(--hilt-shadow));
+  transition: filter 1s ease;
+}
+.saber-top {
+  right: 1rem;
+  top: 0;
+  transform: rotate(180deg);
+}
+.saber-bottom {
+  left: 1rem;
+  bottom: 0;
+}
+.saber-light {
+  position: absolute;
+  height: 1rem;
+  width: 50vw;
+  background-color: var(--saber-color);
+  z-index: -1;
+}
+.saber-light-bottom {
+  left: 15rem;
+  bottom: 2.5rem;
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: inset 0 0 10px #fff, 0 0 5px #fff, 0.25rem 0 10px #fff,
+    1rem 0 15px #fff, 2rem 0 20px var(--saber-color),
+    3rem 0 30px var(--saber-color), 4rem 0 40px var(--saber-color),
+    5rem 0 55px var(--saber-color), 6rem 0 75px var(--saber-color),
+    7rem 0 100px var(--saber-color), 8rem 0 150px var(--saber-color),
+    9rem 0 200px var(--saber-color), 10rem 0 300px var(--saber-color),
+    2.5rem -0.75rem 20px var(--saber-color),
+    3rem -1.5rem 30px var(--saber-color), 4.5rem -2rem 40px var(--saber-color),
+    5rem -2.5rem 55px var(--saber-color), 6.5rem -3rem 75px var(--saber-color),
+    7rem -3.5rem 100px var(--saber-color), 8.5rem -4rem 150px var(--saber-color),
+    9rem -5rem 200px var(--saber-color), 10rem -6rem 300px var(--saber-color);
+  transition: 2s ease;
+  animation: flicker 3s ease infinite;
+}
+.saber-light-top {
+  right: 15rem;
+  top: 2.5rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: inset 0 0 10px #fff, 0 0 5px #fff, -0.25rem 0 10px #fff,
+    -1rem 0 15px #fff, -2rem 0 20px var(--saber-color),
+    -3rem 0 30px var(--saber-color), -4rem 0 40px var(--saber-color),
+    -5rem 0 55px var(--saber-color), -6rem 0 75px var(--saber-color),
+    -7rem 0 100px var(--saber-color), -8rem 0 150px var(--saber-color),
+    -9rem 0 200px var(--saber-color), -10rem 0 300px var(--saber-color),
+    -2.5rem 0.75rem 20px var(--saber-color),
+    -3rem 1.5rem 30px var(--saber-color), -4.5rem 2rem 40px var(--saber-color),
+    -5rem 2.5rem 55px var(--saber-color), -6.5rem 3rem 75px var(--saber-color),
+    -7rem 3.5rem 100px var(--saber-color), -8.5rem 4rem 150px var(--saber-color),
+    -9rem 5rem 200px var(--saber-color), -10rem 6rem 300px var(--saber-color);
+  transition: 2s ease;
+  animation: flicker 3s ease infinite 1s;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
